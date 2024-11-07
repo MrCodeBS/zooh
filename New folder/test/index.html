@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Zoo Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="title">Interactive Zoo Guide</h1>
+            <button class="btn btn-success" onclick="openBooking()">Book Tickets</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="areas">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Areas
+                </button>
+                <button class="tab-button" data-tab="tickets">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"></path>
+                        <path d="M12 2v8"></path>
+                    </svg>
+                    My Tickets
+                </button>
+                <button class="tab-button" data-tab="groups">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                    </svg>
+                    My Groups
+                </button>
+            </div>
+
+            <div id="areas-tab" class="tab-content active">
+                <div id="areasGrid" class="areas-grid"></div>
+            </div>
+
+            <div id="tickets-tab" class="tab-content">
+                <div id="tickets-container">
+                    <div class="empty-state">
+                        No tickets yet. Book your visit to get started!
+                    </div>
+                </div>
+            </div>
+
+            <div id="groups-tab" class="tab-content">
+                <div class="group-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Create a Group</h3>
+                    <p>Plan your visit with friends and family. Share tickets and coordinate meeting points.</p>
+                    <button class="btn btn-primary">Start a Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBooking()">&times;</span>
+            <h2>Book Your Zoo Visit</h2>
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label for="visitDate">Visit Date</label>
+                    <input type="date" id="visitDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Tickets</label>
+                    <div id="ticketCounters" class="ticket-counters"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="orderSummary"></div>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">Complete Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

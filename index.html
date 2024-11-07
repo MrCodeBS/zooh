@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Zoo Map</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="map-container">
+        <img src="zoo-map.pngk
+         alt="Zoo Map" id="zoo-map">
+        <div id="location-marker"></div>
+        <div class="map-area" id="pantanal"></div>
+        <div class="map-area" id="savanne"></div>
+        <div class="map-area" id="rainforest"></div>
+    </div>
+    <div id="info-panel">
+        <h2>Zoo Information</h2>
+        <p id="area-info">Click on an area or use the buttons below to explore!</p>
+        <button onclick="updateLocation('pantanal')">Go to Pantanal</button>
+        <button onclick="updateLocation('savanne')">Go to Savanne</button>
+        <button onclick="updateLocation('rainforest')">Go to Rainforest</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
